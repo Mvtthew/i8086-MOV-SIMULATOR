@@ -1,4 +1,4 @@
-let registeredValues = {
+let regValues = {
 	AX: 0,
 	BX: 0,
 	CX: 0,
@@ -16,6 +16,7 @@ handleCommand = (event) => {
 	//Send command
 	if (event.key === 'Enter') {
 
+		// Get commands
 		const commands = document.querySelector('.command-prompt').value.trim().toUpperCase().split(' ');
 		document.querySelector('.command-prompt').value = '';
 
@@ -31,25 +32,25 @@ handleCommand = (event) => {
 
 			case 'MOV':
 				if (parseInt(commands[2]) >= 0) {
-					registeredValues[commands[1]] = commands[2];
+					regValues[commands[1]] = commands[2];
 				} else {
-					registeredValues[commands[2]] = registeredValues[commands[1]];
+					regValues[commands[2]] = regValues[commands[1]];
 				}
 				break;
 
 			case 'GET':
 				if (commands[1] === 'ALL') {
-					writeLine(`AX = ${registeredValues.AX}`);
-					writeLine(`BX = ${registeredValues.BX}`);
-					writeLine(`CX = ${registeredValues.CX}`);
-					writeLine(`DX = ${registeredValues.DX}`);
+					writeLine(`AX = ${regValues.AX}`);
+					writeLine(`BX = ${regValues.BX}`);
+					writeLine(`CX = ${regValues.CX}`);
+					writeLine(`DX = ${regValues.DX}`);
 				} else {
-					writeLine(`${commands[1]} VALUE: ${registeredValues[commands[1]]}`);
+					writeLine(`${commands[1]} VALUE: ${regValues[commands[1]]}`);
 				}
 				break;
 
 			case 'RESET':
-				registeredValues = {
+				regValues = {
 					AX: 0,
 					BX: 0,
 					CX: 0,
