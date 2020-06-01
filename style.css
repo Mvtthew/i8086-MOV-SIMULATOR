@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Consolas";
+}
+
+.command-prompt {
+	width: calc(100% - 3rem);
+	padding: 0.5rem;
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+}
+
+.console {
+	display: flex;
+	width: calc(100% - 2rem);
+	height: calc(100vh - 6rem);
+	background-color: whitesmoke;
+	padding: 1rem;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+.user-command {
+	color: rgba(#000, 0.9);
+}
+
+.user-command span {
+	color: darkolivegreen;
+}
